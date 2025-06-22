@@ -1,5 +1,0 @@
-Input_name,parameter1,parameter2,type
-Lambda,0.1,1,uniform
-Kappa,0.01,0.1,uniform
-M,0.5,1.4,uniform
-OCR,40,150,uniform

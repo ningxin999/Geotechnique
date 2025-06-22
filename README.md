@@ -38,14 +38,23 @@ add your subroutine code path `...\SBI\Main\subroutines`;
 Run Matlab;
 
 ## step 2
-Cases A, B, C are cases using different source of observations: only pile displacement; only reaction force, or both. 
+Cases A, B, C are cases using different source of observations:A - only pile displacement; B - only reaction force, or C - both. 
 
-Here, we can just control the two switch to change the number FE run traing and DR:`AnParam.DR` and `AnParam.TrainDataPerc` to reproduce the results.
+To change between cases, we just need to change the data we used, and all the input data are put in the folder "input/csv/..."
 
-e.g., `AnParam.TrainDataPerc = 1` (means FE training run number = 138)
+Case A: Copy the data from folder "Cases/CaseA" to the current path "input/csv/..."; 
 
-  `AnParam.TrainDataPerc = 0.1-1.0;`
-  `AnParam.DR = "on/off;"
+Case B: Copy the data from folder "Cases/CaseB" to the current path "input/csv/..."; 
+
+Case C: Copy the data from folder "Cases/CaseC" to the current path "input/csv/..."; 
+
+Also we need to change the weight for the model discrepancy, we just need to change the data we used, and all the input data are put in the folder "input/mat/..."
+
+Case A: Copy the data from folder "Cases/CaseA" to the current path "input/mat/..."; 
+
+Case B: Copy the data from folder "Cases/CaseB" to the current path "input/mat/..."; 
+
+Case C: Copy the data from folder "Cases/CaseC" to the current path "input/mat/..."; 
 
 ## step 3
 click run

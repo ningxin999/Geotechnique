@@ -1,0 +1,4 @@
+﻿Input_name,parameter1,parameter2,type
+ω0,0,50,uniform
+ω1,-0.005,0.005,uniform
+h,0,1,uniform

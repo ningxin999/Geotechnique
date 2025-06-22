@@ -1,0 +1,7 @@
+﻿Input_name,parameter1,parameter2,type
+$E_{MD}$,1.00E+04,2.00E+04,uniform
+$G_{TD}$,5.30E+04,2.27E+05,uniform
+$G_{LCA3}$,3.90E+04,1.50E+05,uniform
+$G_{LCA2}$,5.40E+04,1.50E+05,uniform
+$G_{LGUMC1}$,5.50E+04,1.83E+05,uniform
+$G_{LGLMC2}$,5.50E+04,1.83E+05,uniform

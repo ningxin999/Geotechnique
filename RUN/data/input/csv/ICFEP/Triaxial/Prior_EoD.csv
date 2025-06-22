@@ -1,0 +1,6 @@
+Input_name,parameter1,parameter2,type
+$X$,-5.74E-01,-2.08E-01,uniform
+HSMOD,1.00E-02,3.00E+00,uniform
+$G_0$,1.50E+04,6.00E+04,uniform
+$a_0$,-6.00E+00,-2.00E+00,uniform
+$b_0$,1.00E-01,3.00E+00,uniform

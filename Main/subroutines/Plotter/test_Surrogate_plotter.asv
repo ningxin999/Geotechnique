@@ -1,0 +1,63 @@
+function test_Surrogate_plotter(AnParam,N_test,  YPCE, FEoutput, kk, jj)  
+%  Plot surrogate test error (predictions vs actual)
+%
+% Inputs:
+%   AnParam   - Analysis parameters structure (must contain figsExport field)
+%   N_test    - Number of test samples (must be > 0)
+%   YPCE      - Surrogate model predictions
+%   FEoutput  - Original finite element output data
+%   kk        - Output field index (positive integer)
+%   jj        - Stage number (positive integer)
+
+%tell whether validation set exist
+assert(N_test > 0, 'N_test must be positive');
+
+%plotting Yval vs YPCE 
+Y_test = FEoutput{kk}{:,jj}(end - N_test +1:end,:);
+Y_pred = YPCE;metrics = mean(mape(Y_pred,Y_test));
+close all;fig = figure('visible','off');
+plotregression(Y_test, Y_pred,'Test error');
+ax = gca; % Get current axis
+title(sprintf('SMAPE = %.2f%%', metrics));
+hold on;
+
+% 🎨 Beautify labels
+xlabel('True Values', 'FontSize', 16, 'FontWeight', 'bold', ...
+    'Color', 'k', 'Interpreter', 'latex');
+ylabel('Predicted Values', 'FontSize', 16, 'FontWeight', 'bold', ...
+    'Color', 'k', 'Interpreter', 'latex');
+
+% 🎨 Enhance plot aesthetics
+set(ax, 'FontSize', 14, 'LineWidth', 1.0, 'Box', 'on'); % Improve axis
+set(findall(ax, 'Type', 'Line'), 'LineWidth', 1.0); % Make lines bolder
+set(findall(ax, 'Type', 'Text'), 'FontSize', 14, 'FontWeight', 'normal', 'FontName', 'Times New Roman'); % Improve text clarity
+grid on; % Enable grid
+colormap(turbo); % Use a modern colormap
+hold off;  
+
+%export the figs
+% get the full path to create a 'savedResults' folder         
+outputfolder = fullfile(pwd(),'trained_surrogate','Test_error'); 
+if isfolder(outputfolder) == 0
+    mkdir(outputfolder);
+end
+
+%Name and export figures 
+filename = ['Stage' num2str(jj)  'Outputfield' num2str(kk) AnParam.figsExport ];
+filepath  = fullfile(outputfolder,filename);
+exportgraphics(fig,filepath,...
+           'BackgroundColor','white','Resolution',300);
+end
+
+function smape_value = smape(Y_true, Y_pred)
+    % 计算对称平均绝对百分比误差 (sMAPE)
+    % 输入:
+    %   Y_true: 真实值数组 (n×1 或 1×n)
+    %   Y_pred: 预测值数组 (n×1 或 1×n)
+    % 输出:
+    %   smape_value: sMAPE 值 (百分比形式)
+    
+    numerator = abs(Y_true - Y_pred);
+    denominator = abs(Y_true) + abs(Y_pred);
+    smape_value = 100 * mean(2 * numerator ./ denominator); % 转换为百分比
+end

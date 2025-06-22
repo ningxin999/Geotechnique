@@ -1,0 +1,6 @@
+Input_name,parameter1,parameter2,type
+K0,1,2.28,uniform
+G,40,180,uniform
+G/E,1.25,4,uniform
+PileRF,0.7,1,uniform
+MG_N,0.5,2,uniform

@@ -1,0 +1,5 @@
+directories:
+  inputcsv: ['data', 'input', 'csv']
+  inputmat: ['data', 'input', 'mat']
+  exportmat: ['data', 'output', 'mat']
+  config: ['data', 'config']

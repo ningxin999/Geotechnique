@@ -69,7 +69,7 @@ The following functions used in the scripts require toolboxes to be installed:
 
 ---------------------
 ## Contact <a name="Contact"></a>
-Thank you very much for your interest in our work， it's a pleasure to connect with you here. We are committed to open-source code and transparent, reproducible scientific research. All the data and figures in the paper are intended to be as reproducible as possible. If you encounter any issues using the code, please don't hesitate to reach out.
+Thank you very much for your interest in our work. All the data and figures in the paper are intended to be as reproducible as possible. If you encounter any issues using the code, please don't hesitate to reach out.
 
 Ningxin Yang
 
